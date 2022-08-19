@@ -1,0 +1,18 @@
+{
+    "program_name": "hardware_slicing_baselineB",
+    "ports": [
+        {
+            "port": 58,
+            "breakout": 0,
+            "speed": "100G",
+            "fec": null
+        },
+        {
+            "port": 64,
+            "breakout": 0,
+            "speed": "100G",
+            "fec": null
+        }
+    ],
+    "tables": []
+}

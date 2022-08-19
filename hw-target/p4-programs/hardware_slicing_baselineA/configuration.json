@@ -1,0 +1,66 @@
+{
+    "program_name": "hardware_slicing_baselineA",
+    "ports": [
+        {
+            "port": 58,
+            "breakout": 0,
+            "speed": "100G",
+            "fec": null
+        },
+        {
+            "port": 64,
+            "breakout": 0,
+            "speed": "100G",
+            "fec": null
+        }
+    ],
+    "tables": [
+        {
+            "name": "CustomerA.CustomerAIngress.l4_acl",
+            "key_config": [
+                {
+                    "name": "hdr.ipv4.dst_addr",
+                    "annotation": "ipv4",
+                    "type": "lpm"
+                },
+                {
+                    "name": "hdr.ipv4.protocol",
+                    "annotation": null,
+                    "type": "exact"
+                },
+                {
+                    "name": "hdr.l4proto.dst_port",
+                    "annotation": null,
+                    "type": "exact"
+                }
+            ],
+            "entries": [
+                {
+                    "keys": [
+                        {
+                            "value": "10.0.0.0",
+                            "prefix_len": 24
+                        },
+                        {
+                            "value": 17
+                        },
+                        {
+                            "value": 21000
+                        }
+                    ],
+                    "data": [
+                        {
+                            "name": "l1_port",
+                            "value": 132
+                        },
+                        {
+                            "name": "l4_port",
+                            "value": 31000
+                        }
+                    ],
+                    "action": "CustomerAIngress.modify_and_forward_pkt"
+                }
+            ]
+        }
+    ]
+}

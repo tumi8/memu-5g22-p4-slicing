@@ -1,0 +1,77 @@
+{
+    "program_name": "table_slicing_baseline",
+    "ports": [
+        {
+            "port": 63,
+            "breakout": 0,
+            "speed": "100G",
+            "fec": null
+        },
+        {
+            "port": 64,
+            "breakout": 0,
+            "speed": "100G",
+            "fec": null
+        }
+    ],
+    "tables": [
+        {
+            "name": "SwitchIngress.customerA_ipv4",
+            "key_config": [
+                {
+                    "name": "hdr.ipv4.src_addr",
+                    "annotation": "ipv4",
+                    "type": "exact"
+                },
+                {
+                    "name": "hdr.ipv4.dst_addr",
+                    "annotation": "ipv4",
+                    "type": "exact"
+                },
+                {
+                    "name": "hdr.ipv4.protocol",
+                    "annotation": null,
+                    "type": "exact"
+                },
+                {
+                    "name": "hdr.l4proto.src_port",
+                    "annotation": null,
+                    "type": "exact"
+                },
+                {
+                    "name": "hdr.l4proto.dst_port",
+                    "annotation": null,
+                    "type": "exact"
+                }
+            ],
+            "entries": [
+                {
+                    "keys": [
+                        {
+                            "value": "10.0.0.1"
+                        },
+                        {
+                            "value": "10.0.0.2"
+                        },
+                        {
+                            "value": 17
+                        },
+                        {
+                            "value": 20000
+                        },
+                        {
+                            "value": 21000
+                        }
+                    ],
+                    "data": [
+                        {
+                            "name": "port",
+                            "value": 312
+                        }
+                    ],
+                    "action": "SwitchIngress.forward_pkt"
+                }
+            ]
+        }
+    ]
+}
